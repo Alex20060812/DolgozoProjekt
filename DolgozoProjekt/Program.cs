@@ -50,6 +50,15 @@ namespace DolgozoProjekt
                 Console.WriteLine("Nincs ilyen dolgozó");
 
             }
+
+            var diakok = dolgozok.Where(x => x.Kor < 18).ToList();
+            StreamWriter sw = new StreamWriter("diakok.txt");
+            
+            foreach (var item in diakok)
+            {
+                sw.WriteLine(item.Vezeteknev + " " + item.Keresztnev + " " + item.Neme + " " + item.Kor + " " + item.Fizetes + " Ft");
+            }
+            sw.Close();
         }
     }
 }
